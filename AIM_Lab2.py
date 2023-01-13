@@ -67,14 +67,20 @@ try:
         else:
             B = numpy.flipud(A[N // 2:, N // 2:])
             C = numpy.flipud(A[0: N // 2, N // 2:])
+            F[N // 2:, N // 2:] = C
+            F[0: N // 2, N // 2:] = B
     else:
-        print("More negatives in even rows of E, non-symmetrically switching B and E")
+        print("More negatives in even rows of E, asymmetrically switching B and E")
         if (N % 2 != 0):
+            B = F[0: large, remainder:]
+            E = F[0: large, 0: large]
             F[0: large, 0: large] = B
             F[0: large, remainder:] = E
         else:
             B = A[0: N // 2, 0: N // 2]
             E = A[0: N // 2, N // 2:]
+            F[0: N // 2, N // 2:] = B
+            F[0: N // 2, 0: N // 2] = E
 
     print("F: ")
     print(F)
