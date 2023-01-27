@@ -105,7 +105,7 @@ try:
     print("Result: ", end = '')
     print(result)
 
-    graph1=pyplot.figure()
+    graph1 = pyplot.figure()
     eSize=len(E)*len(E[0])
     X = numpy.linspace(0, eSize, eSize)
     Y = numpy.asarray(E).reshape(-1)
